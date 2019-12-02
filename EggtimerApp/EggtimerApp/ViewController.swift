@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
-    let eggTimes = ["Soft":3, "Medium" : 6, "Hard": 7]
+    let eggTimes = ["Soft":5, "Medium" : 8, "Hard": 12]
     var counter = 60
     var timer = Timer()
     var totalTime = 100
+    var player: AVAudioPlayer!
 
     
     @IBOutlet weak var TitleLabel: UILabel!
@@ -37,17 +39,19 @@ class ViewController: UIViewController {
             } else {
                 timer.invalidate()
                 TitleLabel.text = "Done"
-                //Code should execute after 3 second delay.
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                playSound()
+                //Code should execute after 4 second delay.
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                     self.TitleLabel.text = "How do you like your eggs?"
-                    self.progressBar.progress = 0.0            }
-           
+                    self.progressBar.progress = 0.0
+            }
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    func playSound() {
+    let url = Bundle.main.url(forResource: "alarm_sound", withExtension: "mp3")
+    player = try! AVAudioPlayer(contentsOf: url!)
+    player.play()
     }
 }
     
