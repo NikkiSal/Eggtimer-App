@@ -2,7 +2,7 @@
 //  EggtimerAppTests.swift
 //  EggtimerAppTests
 //
-//  Created by Marzieh on 2019-11-30.
+//  Created by Nikki on 2019-11-30.
 //  Copyright © 2019 Myph. All rights reserved.
 //
 
